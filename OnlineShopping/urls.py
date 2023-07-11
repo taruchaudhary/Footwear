@@ -20,7 +20,8 @@ from OnlineShopping import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage),
+    path('', views.register,name='signup'),
+    path('home/', views.homepage,name='home'),
     path('about/', views.about),
     path('addtowishlist/', views.addtowishlist),
     path('cart/', views.cart),
@@ -30,8 +31,8 @@ urlpatterns = [
     path('orderComplete/', views.orderComplete),
     path('productdetail/', views.productdetail),
     path('women/', views.women),
-    path('login/', views.login),
-    path('register/', views.register),
+    path('login/', views.login,name='login'),
+    path('logout/', views.login,name='logout'),
     
 
 ]

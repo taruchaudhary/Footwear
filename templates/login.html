@@ -125,6 +125,7 @@
         width: 50%;
         border-radius: 10px;
         font-size: 1.2rem;
+        margin-top: 20px;
         background-image: linear-gradient(
           43deg,
           hsla(340, 100%, 76%, 1) 0%,
@@ -148,9 +149,10 @@
         margin-bottom: 5px;
         font-weight: 300;
       }
-      span {
+      a {
         font-size: 1.1rem;
         font-weight: 600;
+        text-decoration: none;
         color: hsl(269deg 26% 47%);
       }
     </style>
@@ -158,21 +160,22 @@
   <body>
     <section>
       <h1>Login</h1>
-      <form class="login-form">
+      <form class="login-form" action="" method="post">
+        {% csrf_token %} 
         <h4>Username</h4>
         <div class="username-input">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Type your username" />
+          <input type="text" placeholder="Type your username" name="username" required />
         </div>
         <h4>Password</h4>
         <div class="password-input">
           <i class="fas fa-lock"></i>
-          <input type="text" placeholder="Type your password" />
+          <input type="password" placeholder="Type your password" name="pass" required />
         </div>
+        <center><button class="login-btn" type="submit">LOGIN</button></center>
       </form>
-      <button class="login-btn">LOGIN</button>
       <div class="alternative-signup">
-        <p>Not a member? <span>Sign-up</span></p>
+        <p>Not a member? <a href="{% url 'signup'%}">Sign-up</a></p>
       </div>
     </section>
   </body>

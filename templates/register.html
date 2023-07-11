@@ -150,9 +150,10 @@
         margin-bottom: 5px;
         font-weight: 300;
       }
-      span {
+      a {
         font-size: 1.1rem;
         font-weight: 600;
+        text-decoration: none;
         color: hsl(269deg 26% 47%);
       }
     </style>
@@ -160,26 +161,32 @@
   <body>
     <section>
       <h1>Register</h1>
-      <form class="login-form">
+      <form class="login-form" method="post" action="">
+        {% csrf_token %} 
         <h4>Username</h4>
         <div class="username-input">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Type your username" />
+          <input type="text" placeholder="Type your username" name="username" required/>
         </div>
         <h4>Email</h4>
         <div class="username-input">
           <i class="fas fa-user"></i>
-          <input type="email" placeholder="Type your email" />
+          <input type="email" placeholder="Type your email" name="email" required />
         </div>
         <h4>Password</h4>
         <div class="password-input">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Type your password" />
+          <input type="password" placeholder="Type your password" name="pass1" required/>
         </div>
-        <button class="login-btn" type="submit">Register</button>
+        <h4>Confirm Password</h4>
+        <div class="password-input">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Type your password" name="pass2" required/>
+        </div>
+        <center><button class="login-btn" type="submit">Register</button></center> 
       </form>
       <div class="alternative-signup">
-        <p>Already have account? <span>Login</span></p>
+        <p>Already have account? <a href="{% url 'login'%}">Login</a></p>
       </div>
     </section>
   </body>
